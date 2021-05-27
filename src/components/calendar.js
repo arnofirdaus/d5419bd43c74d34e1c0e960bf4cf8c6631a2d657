@@ -6,6 +6,7 @@ const Container = styled.div`
 	padding: ${props => props.theme.spaces.small};
 	max-widht: 100px;
 	overflow-x: scroll;
+	border-bottom: 1px solid ${props => props.theme.colors.lightGrey};
 `
 
 const ContainerDate = styled.div`

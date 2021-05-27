@@ -13,7 +13,7 @@ const ContainerDate = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-right: ${props => props.theme.spaces.small};
-	padding: ${props => props.theme.spaces.small} ${props => props.theme.spaces.medium};
+	padding: 8px 14px;
 	background: ${props => props.selected ? props.theme.colors.black : 'transparent'};
 	border-radius: 100%;
 

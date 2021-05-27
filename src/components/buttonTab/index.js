@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const Container = styled.div`
   display: flex;
-	padding: ${props => props.theme.spaces.small};
+	padding: ${props => props.theme.spaces.medium};
 `
 
 const ContainerButton = styled.div`

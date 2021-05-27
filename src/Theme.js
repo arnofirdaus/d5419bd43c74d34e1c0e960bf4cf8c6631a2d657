@@ -5,7 +5,7 @@ const theme = {
   colors: {
     red: "#f9423a",
     brown: "#a23530",
-    black: "#a23530",
+    black: "#424749",
     grey: "#6e7679",
     lightGrey: "#e2e4e4",
 		white: "#f1f1f2"
@@ -17,7 +17,7 @@ const theme = {
     large: "26px",
 		veryLarge: "20px",
   },
-  space: {
+  spaces: {
     verySmall: "4px",
     small: "8px",
     medium: "16px",

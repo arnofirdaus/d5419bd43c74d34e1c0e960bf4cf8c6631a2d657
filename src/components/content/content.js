@@ -5,8 +5,9 @@ import Rating from './component/rating';
 import TextDate from './component/textDate';
 
 const Container = styled.div`
-	flex: 1;
+	flex: ;
 	padding: ${props => props.theme.spaces.medium};
+	overflow: auto;
 `
 
 const ContainerMenu = styled.div`
@@ -54,8 +55,19 @@ const TextPrice = styled.div`
 `
 
 const Content = () => {
+	const [y, setY] = useState(0)
+
+  const handleScroll = (e) => {
+		if(e.target.scrollTop > y){
+			console.log('scrollfown')
+		} else {
+			console.log('scrollup')
+		}
+		setY(e.target.scrollTop)
+  }
+
 	return(
-		<Container>
+		<Container onScroll={handleScroll}>
 			<ContainerMenu>
 				<TextDate />
 				<CardMenu>

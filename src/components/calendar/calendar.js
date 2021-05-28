@@ -4,9 +4,9 @@ import styled from "styled-components"
 const Container = styled.div`
   display: flex;
 	padding: ${props => props.theme.spaces.small};
-	max-widht: 100px;
-	overflow-x: scroll;
+	overflow-x: auto;
 	border-bottom: 1px solid ${props => props.theme.colors.lightGrey};
+	height: 63px;
 `
 
 const ContainerDate = styled.div`

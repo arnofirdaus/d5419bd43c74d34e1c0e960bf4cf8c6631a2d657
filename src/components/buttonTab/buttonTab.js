@@ -1,9 +1,10 @@
 import React, { useState } from "react"
+import { useSelector } from "react-redux"
 import styled from "styled-components"
 
 const Container = styled.div`
   display: flex;
-	padding: ${props => props.theme.spaces.medium};
+	padding: ${props => props.isShow ? props.theme.spaces.medium : '0'} ${props => props.theme.spaces.medium};
 `
 
 const ContainerButton = styled.div`
@@ -11,8 +12,11 @@ const ContainerButton = styled.div`
   display: flex;
 	border-radius: 8px;
 	overflow: hidden;
-	height: 35px;
+	height: ${props => props.isShow ? '35px' : '0'};
 	align-item: center;
+
+	transition-property: height;
+	transition-duration: .25s;
 `
 
 const Button = styled.div`
@@ -28,11 +32,14 @@ const Button = styled.div`
 `
 
 const ButtonTab = () => {
-	const [selected, setSelected] = useState("Lunch");
+	const [selected, setSelected] = useState("Lunch")
+	const state = useSelector((state) => state.content)
+
+
 
 	return(
-		<Container>
-			<ContainerButton>
+		<Container isShow={state.isTabShow}>
+			<ContainerButton isShow={state.isTabShow}>
 				<Button active={selected === 'Lunch'} onClick={() => setSelected("Lunch")}>Lunch</Button>
 				<Button active={selected === 'Dinner'} onClick={() => setSelected("Dinner")}>Dinner</Button>
 			</ContainerButton>

@@ -3,6 +3,9 @@ import styled from "styled-components"
 import ButtonAdd from './component/buttonAdd';
 import Rating from './component/rating';
 import TextDate from './component/textDate';
+import { contentAction } from "../../actions"
+import { bindActionCreators } from "redux"
+import { useDispatch } from 'react-redux';
 
 const Container = styled.div`
 	flex: ;
@@ -56,12 +59,16 @@ const TextPrice = styled.div`
 
 const Content = () => {
 	const [y, setY] = useState(0)
+	const dispatch = useDispatch()
+	const { showTab } = bindActionCreators(contentAction, dispatch)
 
   const handleScroll = (e) => {
-		if(e.target.scrollTop > y){
-			console.log('scrollfown')
-		} else {
-			console.log('scrollup')
+		if(e.target.scrollTop % 10 === 0){
+			if(e.target.scrollTop > y){
+				showTab(false)
+			} else {
+				showTab(true)
+			}
 		}
 		setY(e.target.scrollTop)
   }
@@ -85,7 +92,21 @@ const Content = () => {
 				</CardMenu>
 
 				<CardMenu>
-					<img src="/assets/image-1.jpg" width="100%" alt="menu"/>
+					<img src="/assets/image-2.jpg" width="100%" alt="menu"/>
+					<MenuContent>
+						<Rating />
+						<TextTitle>Roasted Chicken with Scrambled Egg</TextTitle>
+						<TextSubTitle>by Kulina &#8226; Uptown Lunch</TextSubTitle>
+
+						<ContainerPrice>
+							<TextPrice>Rp. 35,000</TextPrice>
+							<ButtonAdd />
+						</ContainerPrice>
+					</MenuContent>
+				</CardMenu>
+				
+				<CardMenu>
+					<img src="/assets/image-3.jpg" width="100%" alt="menu"/>
 					<MenuContent>
 						<Rating />
 						<TextTitle>Roasted Chicken with Scrambled Egg</TextTitle>

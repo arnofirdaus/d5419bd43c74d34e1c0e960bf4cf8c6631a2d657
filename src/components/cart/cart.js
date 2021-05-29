@@ -46,9 +46,9 @@ const ContainerIcon = styled.div`
 `
 
 const Cart = () => {
-	const state = useSelector((state) => state.cart)
+	const state = useSelector((state) => state.content)
 	return(
-		<Container isShow={state.isShow}>
+		<Container isShow={state.isCartShow}>
 			<ContainerAlert>
 				<ContainerText>
 					<TextTitle>5 Items | Rp 125,000</TextTitle>

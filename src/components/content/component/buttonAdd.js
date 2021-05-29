@@ -3,7 +3,7 @@ import styled from "styled-components"
 import AddIcon from '@material-ui/icons/Add';
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
-import { cartAction } from "../../../actions";
+import { contentAction } from "../../../actions";
 
 const Button = styled.div`
 	background: ${props => props.theme.colors.red};
@@ -20,7 +20,7 @@ const Button = styled.div`
 const ButtonAdd = () => {
 	const dispatch = useDispatch()
 	const timeoutModal = 3; 
-	const { showCart } = bindActionCreators(cartAction, dispatch)
+	const { showCart } = bindActionCreators(contentAction, dispatch)
 
 	const handleShowCart = (show) => {
 		showCart(show)

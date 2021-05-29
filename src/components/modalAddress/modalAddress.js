@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import CloseIcon from '@material-ui/icons/Close';
 import ListAddress from './component/ListAddress';
 import InputAddress from './component/inputAddress';
+import { useDispatch, useSelector } from 'react-redux';
+import { addressAction } from '../../actions';
+import { bindActionCreators } from 'redux';
 
+const animationDuration = 350;
 const Container = styled.div`
 	position: absolute;
 	display: flex;
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
-	background: rgba(0,0,0,0.5);
-	
+	background: ${props => props.isShowOverlay ? 'rgba(0,0,0,0.5)' : 'transparent' } ;
+	bottom: ${props => props.isShow ? '0' : '-100%'};
+	transition-property: all;
+	transition-duration: ${animationDuration}ms;
 `
 
 const Panel = styled.div`
@@ -44,13 +50,25 @@ const ContainerFooter = styled.div`
 `
 
 const ModalAddress = () => {
+	const [overlay, setOverlay] = useState(false)
+	const state = useSelector((state) => state.address)
+	const dispatch = useDispatch()
+	const { showModal } = bindActionCreators(addressAction, dispatch)
 
 	const handleClose = () => {
-		console.log('close')
+		showModal(false)
 	}
 
+	useEffect(() => {
+		if(state.isModalShow){
+			setTimeout(() => setOverlay(true), animationDuration / 2);
+		}else{
+			setOverlay(false)
+		}
+	}, [state.isModalShow])
+
 	return(
-		<Container>
+		<Container isShow={state.isModalShow} isShowOverlay={overlay}>
 			<Panel>
 				<ContainerClose >
 					<CloseIcon style={{color: "#424749"}} onClick={() => handleClose()}	/>

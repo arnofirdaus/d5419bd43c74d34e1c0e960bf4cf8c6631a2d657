@@ -36,7 +36,7 @@ const InputAddress = () => {
 	return(
 		<ContainerInput>
 			<RoomIcon style={{margin: "auto", color: "#f9423a"}}/>
-			<Input onChange={onChangeAddress()}/> 
+			<Input onChange={onChangeAddress()} placeholder="Type here"/> 
 		</ContainerInput>
 	)
 }

@@ -2,6 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { addressAction } from "../../actions";
 
 const Container = styled.div`
   display: flex;
@@ -31,12 +34,19 @@ const TextSubTitle = styled.span`
 `
 
 const Header = () => {
+	const dispatch = useDispatch()
+	const { showModal } = bindActionCreators(addressAction, dispatch)
+
+	const handleShowModal = () => {
+		showModal(true)
+	}
+
 	return(
 		<Container>
 			<ArrowBackIcon style={{color: "#424749", marginTop: "4px"}}/>
 			<ContainerText>
 				<TextSubTitle>Alamat Pengantaran</TextSubTitle>
-				<ContainerAddress>
+				<ContainerAddress onClick={() => handleShowModal(true)}>
 					<TextTitle>
 						Tokopedia Tower
 					</TextTitle>

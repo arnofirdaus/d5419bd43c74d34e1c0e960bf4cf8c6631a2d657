@@ -1,7 +1,7 @@
-export const showCart = (show) => {
+export const showModal = (show) => {
 	return (dispatch) => {
 		dispatch({
-			type: "showCart",
+			type: "showModal",
 			payload: show
 		})
 	}

@@ -63,12 +63,10 @@ const Content = () => {
 	const { showTab } = bindActionCreators(contentAction, dispatch)
 
   const handleScroll = (e) => {
-		if(e.target.scrollTop % 10 === 0){
-			if(e.target.scrollTop > y){
-				showTab(false)
-			} else {
-				showTab(true)
-			}
+		if(e.target.scrollTop > y){
+			showTab(false)
+		} else {
+			showTab(true)
 		}
 		setY(e.target.scrollTop)
   }

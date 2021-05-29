@@ -79,7 +79,7 @@ const Content = () => {
 
 						<ContainerPrice>
 							<TextPrice>Rp. 35,000</TextPrice>
-							<ButtonAdd />
+							<ButtonAdd/>
 						</ContainerPrice>
 					</MenuContent>
 				</CardMenu>

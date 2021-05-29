@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { useSelector } from 'react-redux';
 
 const Container = styled.div`
 	position: fixed;
-	bottom: 0;
+	bottom: ${props => props.isShow ? '0' : '-100px'};
 	width: 100%;
 	background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
 	padding: ${props => props.theme.spaces.medium} ${props => props.theme.spaces.small};
+	transition-property: all;
+	transition-duration: .75s;
 `
 
 const ContainerAlert = styled.div`
@@ -23,7 +26,6 @@ const ContainerText = styled.div`
 	flex-direction: column;
 	padding: ${props => props.theme.spaces.small} ${props => props.theme.spaces.medium};
 	flex-grow: 1;
-
 `
 
 const TextTitle = styled.div`
@@ -44,8 +46,9 @@ const ContainerIcon = styled.div`
 `
 
 const Cart = () => {
+	const state = useSelector((state) => state.cart)
 	return(
-		<Container>
+		<Container isShow={state.isShow}>
 			<ContainerAlert>
 				<ContainerText>
 					<TextTitle>5 Items | Rp 125,000</TextTitle>

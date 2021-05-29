@@ -66,10 +66,10 @@ const Calendar = () => {
 		<Container>
 			<ContainerScroll>
 			{
-				dates.map((data) => {
+				dates.map((data, i) => {
 					let isSelected = data.date == selected
 					return (
-						<ContainerDate selected={isSelected} onClick={() => !data.disabled ? setSelected(data.date) : null}>
+						<ContainerDate key={i} selected={isSelected} onClick={() => !data.disabled ? setSelected(data.date) : null}>
 								<TextDay disabled={data.disabled} selected={isSelected}>{data.day}</TextDay>
 								<TextDate disabled={data.disabled} selected={isSelected}>{data.date}</TextDate>
 						</ContainerDate>

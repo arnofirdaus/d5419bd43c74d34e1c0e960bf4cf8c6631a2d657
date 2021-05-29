@@ -78,7 +78,7 @@ const Content = () => {
 			<ContainerMenu>
 				<TextDate />
 				<CardMenu>
-					<img src="/assets/image-1.jpg" width="100%" alt="menu"/>
+					<img src={process.env.PUBLIC_URL + "/assets/image-1.jpg"} width="100%" alt="menu"/>
 					<MenuContent>
 						<Rating />
 						<TextTitle>Roasted Chicken with Scrambled Egg</TextTitle>
@@ -92,7 +92,7 @@ const Content = () => {
 				</CardMenu>
 
 				<CardMenu>
-					<img src="/assets/image-2.jpg" width="100%" alt="menu"/>
+					<img src={process.env.PUBLIC_URL + "/assets/image-2.jpg"} width="100%" alt="menu"/>
 					<MenuContent>
 						<Rating />
 						<TextTitle>Roasted Chicken with Scrambled Egg</TextTitle>
@@ -106,7 +106,7 @@ const Content = () => {
 				</CardMenu>
 				
 				<CardMenu>
-					<img src="/assets/image-3.jpg" width="100%" alt="menu"/>
+					<img src={process.env.PUBLIC_URL + "/assets/image-3.jpg"} width="100%" alt="menu"/>
 					<MenuContent>
 						<Rating />
 						<TextTitle>Roasted Chicken with Scrambled Egg</TextTitle>
@@ -120,7 +120,7 @@ const Content = () => {
 				</CardMenu>
 				
 				<CardMenu>
-					<img src="/assets/image-1.jpg" width="100%" alt="menu"/>
+					<img src={process.env.PUBLIC_URL + "/assets/image-1.jpg"} width="100%" alt="menu"/>
 					<MenuContent>
 						<Rating />
 						<TextTitle>Roasted Chicken with Scrambled Egg</TextTitle>
@@ -134,7 +134,7 @@ const Content = () => {
 				</CardMenu>
 				
 				<CardMenu>
-					<img src="/assets/image-2.jpg" width="100%" alt="menu"/>
+					<img src={process.env.PUBLIC_URL + "/assets/image-2.jpg"} width="100%" alt="menu"/>
 					<MenuContent>
 						<Rating />
 						<TextTitle>Roasted Chicken with Scrambled Egg</TextTitle>

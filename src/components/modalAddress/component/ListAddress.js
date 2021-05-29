@@ -73,7 +73,7 @@ const ListAddress = () => {
 			{
 				state.address && showList && 
 				data.filter(
-					(e) => e.name?.toLowerCase().match(state.address) 
+					(e) => e.name?.toLowerCase().match(state.address.toLowerCase()) 
 						|| e.address?.toLowerCase().match(state.address.toLowerCase())
 					).map((e, i) =>
 					<Container key={i}>

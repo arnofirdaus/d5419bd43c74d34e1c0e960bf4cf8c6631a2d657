@@ -28,8 +28,8 @@ const InputAddress = () => {
 
 	const onChangeAddress = () => e => {
 		if(e.target.value.length > 3){
-			console.log(e.target.value)
 			setAddress(e.target.value)
+			console.log(address)
 		}
 	}
 

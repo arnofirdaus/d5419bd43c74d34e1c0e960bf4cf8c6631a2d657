@@ -22,7 +22,7 @@ const App = () => {
         <Calendar />
         <ButtonTab />
         <Content />
-        {/* <ModalAddress /> */}
+        <ModalAddress />
         <Cart />
       </Container>
     </Theme>

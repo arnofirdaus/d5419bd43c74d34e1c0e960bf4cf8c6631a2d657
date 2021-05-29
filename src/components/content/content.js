@@ -71,7 +71,7 @@ const Content = () => {
 			<ContainerMenu>
 				<TextDate />
 				<CardMenu>
-					<img src="/assets/image-1.jpg" width="100%"/>
+					<img src="/assets/image-1.jpg" width="100%" alt="menu"/>
 					<MenuContent>
 						<Rating />
 						<TextTitle>Roasted Chicken with Scrambled Egg</TextTitle>
@@ -85,7 +85,7 @@ const Content = () => {
 				</CardMenu>
 
 				<CardMenu>
-					<img src="/assets/image-1.jpg" width="100%"/>
+					<img src="/assets/image-1.jpg" width="100%" alt="menu"/>
 					<MenuContent>
 						<Rating />
 						<TextTitle>Roasted Chicken with Scrambled Egg</TextTitle>

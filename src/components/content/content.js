@@ -119,6 +119,34 @@ const Content = () => {
 					</MenuContent>
 				</CardMenu>
 				
+				<CardMenu>
+					<img src="/assets/image-1.jpg" width="100%" alt="menu"/>
+					<MenuContent>
+						<Rating />
+						<TextTitle>Roasted Chicken with Scrambled Egg</TextTitle>
+						<TextSubTitle>by Kulina &#8226; Uptown Lunch</TextSubTitle>
+
+						<ContainerPrice>
+							<TextPrice>Rp. 35,000</TextPrice>
+							<ButtonAdd />
+						</ContainerPrice>
+					</MenuContent>
+				</CardMenu>
+				
+				<CardMenu>
+					<img src="/assets/image-2.jpg" width="100%" alt="menu"/>
+					<MenuContent>
+						<Rating />
+						<TextTitle>Roasted Chicken with Scrambled Egg</TextTitle>
+						<TextSubTitle>by Kulina &#8226; Uptown Lunch</TextSubTitle>
+
+						<ContainerPrice>
+							<TextPrice>Rp. 35,000</TextPrice>
+							<ButtonAdd />
+						</ContainerPrice>
+					</MenuContent>
+				</CardMenu>
+				
 			</ContainerMenu>
 		</Container>
 	)

@@ -6,3 +6,12 @@ export const showModal = (show) => {
 		})
 	}
 }
+
+export const setAddress = (value) => {
+	return (dispatch => {
+		dispatch({
+			type: "setAddress",
+			payload: value
+		})
+	})
+}

@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import RoomIcon from '@material-ui/icons/Room';
+import { useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addressAction } from '../../../actions';
 
 const ContainerInput = styled.div`
 	display: flex;
@@ -24,12 +27,14 @@ const Input = styled.input`
 `
 
 const InputAddress = () => {
-	const [address, setAddress] = useState("")
+	const dispatch = useDispatch()
+	const { setAddress } = bindActionCreators(addressAction, dispatch)
 
 	const onChangeAddress = () => e => {
 		if(e.target.value.length > 3){
 			setAddress(e.target.value)
-			console.log(address)
+		}else{
+			setAddress(null)
 		}
 	}
 

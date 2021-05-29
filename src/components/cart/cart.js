@@ -11,7 +11,7 @@ const Container = styled.div`
 	background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
 	padding: ${props => props.theme.spaces.medium} ${props => props.theme.spaces.small};
 	transition-property: all;
-	transition-duration: .75s;
+	transition-duration: .5s;
 `
 
 const ContainerAlert = styled.div`

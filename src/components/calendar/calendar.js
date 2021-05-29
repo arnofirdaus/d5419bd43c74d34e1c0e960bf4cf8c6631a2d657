@@ -2,11 +2,13 @@ import React, { useState } from "react"
 import styled from "styled-components"
 
 const Container = styled.div`
-  display: flex;
 	padding: ${props => props.theme.spaces.small};
-	overflow-x: auto;
 	border-bottom: 1px solid ${props => props.theme.colors.lightGrey};
-	height: 63px;
+`
+
+const ContainerScroll = styled.div`
+	display: flex;
+	overflow-x: auto;
 `
 
 const ContainerDate = styled.div`
@@ -16,6 +18,7 @@ const ContainerDate = styled.div`
 	padding: 8px 14px;
 	background: ${props => props.selected ? props.theme.colors.black : 'transparent'};
 	border-radius: 100%;
+	cursor: pointer;
 
 `
 
@@ -61,17 +64,19 @@ const Calendar = () => {
 	]
 	return(
 		<Container>
+			<ContainerScroll>
 			{
 				dates.map((data) => {
 					let isSelected = data.date == selected
 					return (
 						<ContainerDate selected={isSelected} onClick={() => !data.disabled ? setSelected(data.date) : null}>
-							<TextDay disabled={data.disabled} selected={isSelected}>{data.day}</TextDay>
-							<TextDate disabled={data.disabled} selected={isSelected}>{data.date}</TextDate>
+								<TextDay disabled={data.disabled} selected={isSelected}>{data.day}</TextDay>
+								<TextDate disabled={data.disabled} selected={isSelected}>{data.date}</TextDate>
 						</ContainerDate>
 					)
 				})
 			}
+			</ContainerScroll>
 		</Container>
 	)
 }

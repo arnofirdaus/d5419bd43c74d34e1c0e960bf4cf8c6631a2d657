@@ -14,7 +14,7 @@ const theme = {
 		verySmall: "8px",
     small: "12px",
     medium: "14px",
-    large: "26px",
+    large: "16px",
 		veryLarge: "20px",
   },
   spaces: {

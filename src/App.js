@@ -4,6 +4,7 @@ import Calendar from "./components/calendar/calendar";
 import ButtonTab from "./components/buttonTab/buttonTab";
 import Content from "./components/content/content";
 import styled from 'styled-components'
+import ModalAddress from "./components/modalAddress/modalAddress";
 
 const Container = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ const App = () => {
         <Calendar />
         <ButtonTab />
         <Content />
+        {/* <ModalAddress /> */}
       </Container>
     </Theme>
   );

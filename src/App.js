@@ -5,6 +5,7 @@ import ButtonTab from "./components/buttonTab/buttonTab";
 import Content from "./components/content/content";
 import styled from 'styled-components'
 import ModalAddress from "./components/modalAddress/modalAddress";
+import Cart from "./components/cart/cart";
 
 const Container = styled.div`
   display: flex;
@@ -22,6 +23,7 @@ const App = () => {
         <ButtonTab />
         <Content />
         {/* <ModalAddress /> */}
+        <Cart />
       </Container>
     </Theme>
   );

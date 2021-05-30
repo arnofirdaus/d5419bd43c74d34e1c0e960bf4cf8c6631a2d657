@@ -80,7 +80,7 @@ const Content = () => {
 	return(
 		<Container onScroll={handleScroll}>
 			<ContainerMenu>
-				<TextDate />
+				<TextDate text={'Kamis, 13 Maret 2021'}/>
 				{
 					content.map((data, i) => <CardContent data={data} key={i} onClickAdd={handleShowCart}/>)
 				}

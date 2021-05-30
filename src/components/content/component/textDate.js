@@ -8,10 +8,9 @@ const Text = styled.div`
 	margin-bottom: ${props => props.theme.spaces.medium};
 `
 
-const TextDate = () => {
-
+const TextDate = ({text}) => {
 	return (
-		<Text>Kamis, 13 Maret 2021</Text>
+		<Text>{text}</Text>
 	)
 }
 

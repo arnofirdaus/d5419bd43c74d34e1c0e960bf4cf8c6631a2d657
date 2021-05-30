@@ -9,14 +9,14 @@ import { bindActionCreators } from 'redux';
 
 const animationDuration = 350;
 const Container = styled.div`
-	position: absolute;
+	position: fixed;
 	display: flex;
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
 	background: ${props => props.isShowOverlay ? 'rgba(0,0,0,0.5)' : 'transparent' } ;
-	bottom: ${props => props.isShow ? '0' : '-100%'};
-	transition-property: all;
+	margin-top: ${props => props.isShow ? '0' : '100vh'};
+	transition-property: margin-top;
 	transition-duration: ${animationDuration}ms;
 `
 
@@ -49,12 +49,48 @@ const ContainerFooter = styled.div`
 	color: ${props => props.theme.colors.black};
 `
 
+const ContainerResult = styled.div`
+	margin-top: ${props => props.theme.spaces.small};
+	height: calc(100% - 210px);
+	overflow-y: auto;
+	overflow-x: hidden;
+`
+
+const data = [
+	{
+		name: "Kulina",
+		address: "Jl. Tulodong Atas No.28, RT.6/RW.3, Senayan, Kebayoran Baru, South Jakarta City, Jakarta 12190"
+	},
+	{
+		name: "Pancoran Riverside Appartment",
+		address: "Jalan Pengadegan, Pancoran South Jakarta"
+	},
+	{
+		name: "Jalan Tulodong atas 28",
+		address: "Jalan Tulodong atas 28, Senayan, Kebayoran Baru"
+	},
+	{
+		name: "Block71 Jakarta",
+		address: "Ariobimo Sentral, South Jakarta, RT.9/RW/4, East Jakarta"
+	}
+]
+
 const ModalAddress = () => {
 	const [overlay, setOverlay] = useState(false)
+	const [showList, setShowList] = useState(false)
+	const [dataAddress, setListAddress] = useState(data)
 	const state = useSelector((state) => state.address)
 	const dispatch = useDispatch()
-	const { showModal } = bindActionCreators(addressAction, dispatch)
+	const { showModal, setAddress } = bindActionCreators(addressAction, dispatch)
 
+	const onChangeAddress = () => e => {
+		if(e.target.value.length > 3){
+			setAddress(e.target.value)
+		}else{
+			setAddress()
+		}
+	}
+	
 	const handleClose = () => {
 		showModal(false)
 	}
@@ -67,6 +103,20 @@ const ModalAddress = () => {
 		}
 	}, [state.isModalShow])
 
+	useEffect(() => {
+		setShowList(state.address ? true : false)
+
+		if(state.address){
+			const dataAddress = data.filter(
+				(e) => e.name?.toLowerCase().match(state.address.toLowerCase()) 
+					|| e.address?.toLowerCase().match(state.address.toLowerCase()))
+					
+			setListAddress(dataAddress)
+		} 
+
+	}, [state.address])
+
+/* Logical component */
 	return(
 		<Container isShow={state.isModalShow} isShowOverlay={overlay}>
 			<Panel>
@@ -75,9 +125,11 @@ const ModalAddress = () => {
 				</ContainerClose>
 
 				<TextTitle>Cek makanan yang tersedia di lokasi kamu!</TextTitle>
-				<InputAddress />
+				<InputAddress onChangeAddress={onChangeAddress}/>
 
-				<ListAddress />
+				<ContainerResult>
+					{showList && <ListAddress dataAddress={dataAddress}/>}
+				</ContainerResult>
 
 				<ContainerFooter>
 					powered by Google
